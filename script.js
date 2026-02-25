@@ -1,3 +1,12 @@
+// ===== EMAILJS INIT =====
+(function () {
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init('23GBJXkvh2mAxTMBH');
+  } else {
+    console.error('EmailJS SDK failed to load. Check your CDN link.');
+  }
+})();
+
 // ===== LOADER =====
 window.addEventListener('load', () => {
   const fill = document.getElementById('loaderFill');
@@ -111,6 +120,7 @@ document.querySelectorAll('a, button, .skill-cat, .project-card, .project-featur
 
 // ===== TYPED TEXT =====
 const roles = [
+  'Software Engineer 💻',
   'AI Mobile Apps 🤖',
   'Flutter Developer 📱',
   'Computer Vision 👁️',
@@ -192,7 +202,7 @@ document.querySelectorAll('.tilt-card').forEach(card => {
   });
 });
 
-// ===== CONTACT FORM WITH EMAILJS ✅ =====
+// ===== CONTACT FORM WITH EMAILJS =====
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -208,10 +218,9 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   status.className = '';
   status.textContent = '';
 
-  // ✅ Send via EmailJS with your real keys
+  // Send via EmailJS
   emailjs.sendForm('service_iki44rs', 'template_llk72lt', this)
     .then(() => {
-      // SUCCESS ✅
       btn.classList.add('success');
       text.textContent = 'Message Sent! ✓';
       icon.className = 'fas fa-check';
@@ -228,7 +237,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
       }, 4000);
     })
     .catch((err) => {
-      // ERROR ❌
       console.error('EmailJS error:', err);
       text.textContent = 'Failed to Send';
       icon.className = 'fas fa-times';
