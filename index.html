@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ahtisham Tasawar | Mobile App Developer</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Noise Overlay -->
+  <div class="noise"></div>
+
+  <!-- Canvas Background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-text">
+      <span>A</span><span>H</span><span>T</span><span>I</span><span>S</span><span>H</span><span>A</span><span>M</span>
+    </div>
+    <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#hero">
+      <span class="logo-bracket">&lt;</span>AT<span class="logo-bracket">/&gt;</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about" data-text="About">About</a></li>
+      <li><a href="#skills" data-text="Skills">Skills</a></li>
+      <li><a href="#projects" data-text="Projects">Projects</a></li>
+      <li><a href="#contact" data-text="Contact">Contact</a></li>
+    </ul>
+    <a href="https://github.com/smokhood" target="_blank" class="nav-github">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#skills" onclick="closeMobile()">Skills</a>
+    <a href="#projects" onclick="closeMobile()">Projects</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span> Available for opportunities
+      </div>
+      <h1 class="hero-name">
+        <span class="glitch" data-text="Ahtisham">Ahtisham</span>
+        <br/>
+        <span class="glitch name-last" data-text="Tasawar">Tasawar</span>
+      </h1>
+      <div class="hero-role">
+        <span class="role-prefix">I build &rarr;</span>
+        <span class="typed-wrap">
+          <span id="typedText"></span><span class="cursor-blink">_</span>
+        </span>
+      </div>
+      <p class="hero-bio">
+        Mobile App Developer specializing in <strong>AI-powered apps</strong> and
+        <strong>cross-platform development</strong>. I turn complex problems into
+        elegant, accessible solutions — from training ML models to pixel-perfect UIs.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">
+          <span>View Projects</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn-ghost">
+          <span>Hire Me</span>
+        </a>
+      </div>
+      <div class="hero-links">
+        <a href="https://github.com/smokhood" target="_blank" class="social-pill">
+          <i class="fab fa-github"></i> smokhood
+        </a>
+        <a href="mailto:ahtishamravian206@gmail.com" class="social-pill">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="tel:+923134829875" class="social-pill">
+          <i class="fas fa-phone"></i> +92-313-482-9875
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="orb-container">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+        <div class="avatar-card" id="avatarCard">
+          <div class="avatar-inner">
+            <div class="avatar-icon"><i class="fas fa-user-astronaut"></i></div>
+            <div class="avatar-name">Ahtisham Tasawar</div>
+            <div class="avatar-title">Mobile App Developer</div>
+            <div class="avatar-badges">
+              <span>Flutter</span>
+              <span>AI/ML</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+        <!-- Floating tech icons -->
+        <div class="float-icon fi1"><i class="fab fa-flutter" style="color:#54C5F8"></i></div>
+        <div class="float-icon fi2"><i class="fab fa-python" style="color:#4584b6"></i></div>
+        <div class="float-icon fi3"><i class="fas fa-brain" style="color:#a78bfa"></i></div>
+        <div class="float-icon fi4"><i class="fab fa-android" style="color:#3DDC84"></i></div>
+        <div class="float-icon fi5"><i class="fas fa-database" style="color:#f59e0b"></i></div>
+        <div class="float-icon fi6"><i class="fab fa-git-alt" style="color:#f05033"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label"><span>01</span> About Me</div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <h2>Building apps that <span class="highlight">make a difference</span></h2>
+        <p>
+          I'm a <strong>BS Computer Science</strong> graduate from
+          <strong>GC University, Lahore</strong> (2021–2025), passionate about building
+          mobile applications that solve real-world problems.
+        </p>
+        <p>
+          My flagship project, <strong>GCUEye</strong>, is an AI-powered campus navigation
+          app built for visually impaired students — combining YOLOv8 object detection,
+          Flutter, and a Flask backend for real-time obstacle alerts.
+        </p>
+        <p>
+          I specialize in the intersection of <strong>mobile development</strong> and
+          <strong>artificial intelligence</strong>, with a strong drive to create
+          accessible, assistive technology.
+        </p>
+        <div class="about-stats">
+          <div class="stat-item reveal">
+            <span class="stat-n" data-target="3">0</span><span class="stat-unit">+</span>
+            <p>Projects Built</p>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-n" data-target="4">0</span><span class="stat-unit">yr</span>
+            <p>CS Education</p>
+          </div>
+          <div class="stat-item reveal">
+            <span class="stat-n" data-target="10">0</span><span class="stat-unit">+</span>
+            <p>Technologies</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-card-wrap reveal">
+        <div class="about-info-card tilt-card" id="aboutCard">
+          <div class="info-row">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <strong>BS Computer Science</strong>
+              <span>GC University, Lahore · 2021–2025</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <i class="fas fa-school"></i>
+            <div>
+              <strong>ICS</strong>
+              <span>Punjab College, Lahore · 2019–2021</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Location</strong>
+              <span>Lahore, Pakistan 🇵🇰</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <span>ahtishamravian206@gmail.com</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <i class="fas fa-circle status-dot"></i>
+            <div>
+              <strong>Status</strong>
+              <span class="available">Open to Work ✨</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label"><span>02</span> Skills</div>
+    <h2 class="section-title reveal">What I work <span class="highlight">with</span></h2>
+    <div class="skills-categories">
+      <div class="skill-cat reveal">
+        <div class="skill-cat-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>Mobile & Frameworks</h3>
+        <div class="skill-tags">
+          <span class="tag">Flutter</span>
+          <span class="tag">Android SDK</span>
+          <span class="tag">Kotlin</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Flask</span>
+          <span class="tag">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI / ML</h3>
+        <div class="skill-tags">
+          <span class="tag">YOLOv8</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Object Detection</span>
+          <span class="tag">Model Training</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Java</span>
+          <span class="tag">C++</span>
+          <span class="tag">C#</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-icon"><i class="fas fa-database"></i></div>
+        <h3>Backend & Data</h3>
+        <div class="skill-tags">
+          <span class="tag">REST APIs</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Database Design</span>
+          <span class="tag">Flask API</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-icon"><i class="fas fa-tools"></i></div>
+        <h3>Tools & Platforms</h3>
+        <div class="skill-tags">
+          <span class="tag">Android Studio</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Git & GitHub</span>
+          <span class="tag">Unity</span>
+          <span class="tag">Postman</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-icon"><i class="fas fa-universal-access"></i></div>
+        <h3>Specializations</h3>
+        <div class="skill-tags">
+          <span class="tag">Accessibility Design</span>
+          <span class="tag">Assistive Tech</span>
+          <span class="tag">AI Mobile Apps</span>
+          <span class="tag">Cross-Platform Dev</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label"><span>03</span> Projects</div>
+    <h2 class="section-title reveal">Featured <span class="highlight">Work</span></h2>
+    <div class="projects-list">
+
+      <!-- Project 1: GCUEye (FEATURED) -->
+      <div class="project-featured reveal tilt-card" id="p1">
+        <div class="project-feat-left">
+          <div class="project-number">01</div>
+          <div class="project-feat-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <span class="project-badge">🏆 Flagship Project</span>
+          <h3>GCUEye</h3>
+          <p class="proj-sub">AI-Based Campus Navigation for Blind Students</p>
+          <p class="proj-desc">
+            Built a Flutter navigation app with a <strong>custom-trained YOLOv8 model</strong>
+            on a custom dataset for real-time obstacle detection. Implemented a Flask API
+            for camera processing with voice and vibration alerts for visually impaired students.
+          </p>
+          <div class="proj-tech">
+            <span>Flutter</span><span>YOLOv8</span><span>Flask</span>
+            <span>Python</span><span>OpenCV</span><span>SQLite</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/smokhood/GCUEye" target="_blank" class="proj-btn">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+            <a href="https://github.com/smokhood/flask-server-for-object-detection" target="_blank" class="proj-btn ghost">
+              <i class="fas fa-server"></i> Flask Server
+            </a>
+          </div>
+        </div>
+        <div class="project-feat-right">
+          <div class="project-visual vis1">
+            <div class="vis-icon"><i class="fas fa-eye"></i></div>
+            <div class="vis-label">Real-time obstacle detection</div>
+            <div class="vis-stats">
+              <div><strong>YOLOv8</strong><span>Custom Model</span></div>
+              <div><strong>Flutter</strong><span>Cross-Platform</span></div>
+              <div><strong>Flask</strong><span>Backend API</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid-2">
+
+        <!-- Project 2: AndPlayer -->
+        <div class="project-card tilt-card reveal">
+          <div class="project-card-top pc2">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="project-card-body">
+            <div class="project-number small">02</div>
+            <h3>AndPlayer</h3>
+            <p>
+              Flutter music player app with offline playback, playlist management,
+              audio queue controls — shuffle & repeat included.
+            </p>
+            <div class="proj-tech small">
+              <span>Flutter</span><span>Dart</span><span>SQLite</span><span>File System APIs</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/smokhood/AndPlayer" target="_blank" class="proj-btn sm">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Cinema Booking -->
+        <div class="project-card tilt-card reveal">
+          <div class="project-card-top pc3">
+            <i class="fas fa-film"></i>
+          </div>
+          <div class="project-card-body">
+            <div class="project-number small">03</div>
+            <h3>Cinema Ticket Booking</h3>
+            <p>
+              Designed a relational DB schema with 7 normalized tables for cinema operations —
+              seat tracking (Gold/Silver), dynamic pricing, and revenue analysis queries.
+            </p>
+            <div class="proj-tech small">
+              <span>MySQL</span><span>SQL Server</span><span>ER Modeling</span><span>3NF</span>
+            </div>
+            <div class="proj-links">
+              <a href="https://github.com/smokhood/Cinema-Ticket-Booking-System" target="_blank" class="proj-btn sm">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label"><span>04</span> Contact</div>
+    <h2 class="section-title reveal">Let's <span class="highlight">Connect</span></h2>
+    <div class="contact-wrapper">
+      <div class="contact-left reveal">
+        <p class="contact-intro">
+          I'm currently looking for new opportunities. Whether you have a project,
+          a question, or just want to say hi — I'll get back to you! 🚀
+        </p>
+        <div class="contact-methods">
+          <a href="mailto:ahtishamravian206@gmail.com" class="contact-method">
+            <div class="cm-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <strong>Email</strong>
+              <span>ahtishamravian206@gmail.com</span>
+            </div>
+            <i class="fas fa-arrow-right cm-arrow"></i>
+          </a>
+          <a href="https://github.com/smokhood" target="_blank" class="contact-method">
+            <div class="cm-icon"><i class="fab fa-github"></i></div>
+            <div>
+              <strong>GitHub</strong>
+              <span>github.com/smokhood</span>
+            </div>
+            <i class="fas fa-arrow-right cm-arrow"></i>
+          </a>
+          <a href="tel:+923134829875" class="contact-method">
+            <div class="cm-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <strong>Phone</strong>
+              <span>+92-313-482-9875</span>
+            </div>
+            <i class="fas fa-arrow-right cm-arrow"></i>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-group">
+          <input type="text" id="fname" placeholder=" " required/>
+          <label for="fname">Your Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="femail" placeholder=" " required/>
+          <label for="femail">Email Address</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="fsubject" placeholder=" " required/>
+          <label for="fsubject">Subject</label>
+        </div>
+        <div class="form-group">
+          <textarea id="fmessage" rows="5" placeholder=" " required></textarea>
+          <label for="fmessage">Message</label>
+        </div>
+        <button type="submit" class="btn-submit">
+          <span id="btnText">Send Message</span>
+          <i class="fas fa-paper-plane" id="btnIcon"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>AT<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p>Designed & Developed by <strong>Ahtisham Tasawar</strong> · Lahore, Pakistan 🇵🇰</p>
+      <p class="footer-stack">Built with HTML · CSS · JavaScript · ❤️</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
