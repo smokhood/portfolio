@@ -417,28 +417,32 @@
           </a>
         </div>
       </div>
+
+      <!-- ✅ ONLY CHANGE: added name attributes + formStatus div + submitBtn id -->
       <form class="contact-form reveal" id="contactForm">
+        <div class="form-status" id="formStatus"></div>
         <div class="form-group">
-          <input type="text" id="fname" placeholder=" " required/>
+          <input type="text" id="fname" name="from_name" placeholder=" " required/>
           <label for="fname">Your Name</label>
         </div>
         <div class="form-group">
-          <input type="email" id="femail" placeholder=" " required/>
+          <input type="email" id="femail" name="from_email" placeholder=" " required/>
           <label for="femail">Email Address</label>
         </div>
         <div class="form-group">
-          <input type="text" id="fsubject" placeholder=" " required/>
+          <input type="text" id="fsubject" name="subject" placeholder=" " required/>
           <label for="fsubject">Subject</label>
         </div>
         <div class="form-group">
-          <textarea id="fmessage" rows="5" placeholder=" " required></textarea>
+          <textarea id="fmessage" name="message" rows="5" placeholder=" " required></textarea>
           <label for="fmessage">Message</label>
         </div>
-        <button type="submit" class="btn-submit">
+        <button type="submit" class="btn-submit" id="submitBtn">
           <span id="btnText">Send Message</span>
           <i class="fas fa-paper-plane" id="btnIcon"></i>
         </button>
       </form>
+
     </div>
   </section>
 
@@ -453,6 +457,9 @@
     </div>
   </footer>
 
+  <!-- ✅ EmailJS SDK — added before script.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('23GBJXkvh2mAxTMBH');</script>
   <script src="script.js"></script>
 </body>
 </html>
